@@ -1,0 +1,44 @@
+html > * {
+	box-sizing: border-box;
+	background-color: #34568b;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: grid;
+	height: 100vh;
+	grid-template-columns: 200px 1fr 200px;
+	grid-template-rows: 100px 1fr 100px;
+	grid-template-areas: "header header header" ".. main .." "footer footer footer";
+}
+
+header {
+	background-color: blanchedalmond;
+	grid-area: header;
+	display: grid;
+	grid-auto-flow: column;
+	justify-items: center;
+	align-items: center;
+}
+
+header ul {
+	display: flex;
+	list-style: none;
+	gap: 1rem;
+}
+
+header a {
+	text-decoration: none;
+	color: black;
+}
+
+main {
+	grid-area: main;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+footer {
+	grid-area: footer;
+}
