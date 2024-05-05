@@ -11,39 +11,48 @@
 		<header>
 			<h1>Book Library</h1>
 			<ul>
-				<li><a href="/">Add Book</a></li>
-				<li><a href="/">All Books</a></li>
+				<li><a href="/" class="addBook">Add Book</a></li>
+				<dialog close>
+					<form>
+						<div>
+							<label for="title">Title:</label>
+							<input type="text" name="title" id="title" />
+						</div>
+						<div>
+							<label for="author">Author:</label>
+							<input type="text" name="author" id="author" />
+						</div>
+						<div>
+							<label for="date">Date:</label>
+							<input type="text" name="date" id="date" />
+						</div>
+						<div>
+							<label for="pages">Pages:</label>
+							<input type="text" name="pages" id="pages" />
+						</div>
+						<div>
+							<label for="read">Read:</label>
+							<input type="checkbox" name="read" id="read" />
+						</div>
+						<button type="submit">Add Book</button>
+					</form>
+					<button autofocus class="closeModal">Close</button>
+				</dialog>
 			</ul>
 		</header>
 		<main>
-			<div class="card">
-				<form>
-					<div>
-						<label for="title">Title:</label>
-						<input type="text" name="title" id="title" />
-					</div>
-					<div>
-						<label for="author">Author:</label>
-						<input type="text" name="author" id="author" />
-					</div>
-					<div>
-						<label for="date">Date:</label>
-						<input type="text" name="date" id="date" />
-					</div>
-					<div>
-						<label for="pages">Pages:</label>
-						<input type="text" name="pages" id="pages" />
-					</div>
-					<div>
-						<label for="read">Read:</label>
-						<input type="checkbox" name="read" id="read" />
-					</div>
-					<button type="submit">Add Book</button>
-				</form>
-			</div>
 			<div class="card"></div>
 			<div class="card"></div>
 		</main>
+		<template id="cardTemplate">
+			<div class="bookCard">
+				<div class="bookTitle"></div>
+				<div class="bookAuthor"></div>
+				<div class="bookYear"></div>
+				<div class="bookPages"></div>
+				<div class="bookRead"></div>
+			</div>
+		</template>
 		<footer></footer>
 	</body>
 </html>
