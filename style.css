@@ -17,6 +17,52 @@ html > * {
 	grid-template-areas: "header" "main" "footer";
 }
 
+dialog[open] {
+	background-color: rgb(50, 50, 50);
+	color: white;
+	padding: 2rem;
+	width: 400px;
+	height: 500px;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+dialog div {
+	margin-bottom: 1rem;
+}
+
+dialog label {
+	display: block;
+	margin-bottom: 0.5rem;
+}
+
+dialog input {
+	width: 100%;
+	border-radius: 0.3rem;
+	padding: 0.3rem;
+	font-size: 1.2rem;
+}
+
+dialog input[type="checkbox"] {
+	transform: scale(1.1);
+	accent-color: grey;
+}
+.checkbox-div {
+	display: flex;
+	width: 10rem;
+}
+
+dialog div:last-of-type {
+	display: flex;
+	gap: 1rem;
+}
+
+.submit-div button {
+	width: 50%;
+	height: 2rem;
+}
+
 header {
 	grid-area: header;
 	display: grid;
@@ -40,8 +86,8 @@ header a {
 main {
 	grid-area: main;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, 300px);
-	grid-auto-rows: 400px;
+	grid-template-columns: repeat(auto-fit, 200px);
+	grid-auto-rows: 300px;
 	justify-content: center;
 	margin-top: 3rem;
 	gap: 1rem;
@@ -51,6 +97,10 @@ main {
 	border: 2px solid grey;
 	border-radius: 1rem;
 	background-color: rgb(50, 50, 50);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 footer {
