@@ -78,10 +78,10 @@ function displayLibrary(books) {
 function handleToggle(node) {
 	if (node.dataset.read === "true") {
 		node.dataset.read = "false";
-		node.textContent = "Start";
+		node.textContent = "Not Read";
 	} else {
 		node.dataset.read = "true";
-		node.textContent = "Finished";
+		node.textContent = "Read";
 	}
 }
 
