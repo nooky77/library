@@ -103,6 +103,28 @@ main {
 	align-items: center;
 }
 
+.bookTitle {
+	font-weight: bold;
+	font-size: 1.2rem;
+	text-align: center;
+	padding: 1rem;
+}
+
+.bookBtn button {
+	border-radius: 0.5rem;
+	padding: 0.3rem 0.6rem;
+	font-size: 1.1rem;
+}
+
+#bookBtnToggle:hover {
+	background-color: grey;
+	color: white;
+}
+
+#bookBtnDelete:hover {
+	background-color: red;
+}
+
 footer {
 	grid-area: footer;
 }

@@ -4,7 +4,7 @@ const cardTemplate = document.querySelector("#cardTemplate");
 const addBookBtn = document.querySelector(".addBook");
 const modal = document.querySelector("dialog");
 const closeModalBtn = document.querySelector(".closeModal");
-const myLibrary = [];
+let myLibrary = [];
 
 addBookBtn.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -29,12 +29,24 @@ form.addEventListener("submit", (e) => {
 	modal.close();
 });
 
+const book1 = new Book("Dune", "Frank Herbert", 1958, 850, false);
+const book2 = new Book(
+	"Harry Potter and the Philosopher's Stone",
+	"J. K. Rowling",
+	1997,
+	223,
+	false
+);
+myLibrary.push(book1, book2);
+displayLibrary(myLibrary);
+
 function Book(title, author, year, pages, read) {
 	this.title = title;
 	this.author = author;
 	this.year = year;
 	this.pages = pages;
 	this.read = Boolean(read);
+	this.id = Date.now() + Math.random();
 }
 
 function addBookToLibrary(book) {
@@ -53,12 +65,27 @@ function displayLibrary(books) {
 		nodeYear.textContent = book.year;
 		const nodePages = node.querySelector(".bookPages");
 		nodePages.textContent = `${book.pages} pages`;
-		const nodeIsRead = node.querySelector(".bookRead");
-		nodeIsRead.textContent = book.read;
+		const nodeBtnToggle = node.querySelector("#bookBtnToggle");
+		nodeBtnToggle.dataset.read = book.read;
+		handleToggle(nodeBtnToggle);
+		nodeBtnToggle.addEventListener("click", (e) => handleToggle(e.target));
+		const nodeBtnDelete = node.querySelector("#bookBtnDelete");
+		nodeBtnDelete.addEventListener("click", (e) => handleDelete(book.id));
 		main.appendChild(node);
 	}
 }
 
-const book1 = new Book("Dune", "Frank Herbert", 1958, 850, false);
-myLibrary.push(book1);
-displayLibrary(myLibrary);
+function handleToggle(node) {
+	if (node.dataset.read === "true") {
+		node.dataset.read = "false";
+		node.textContent = "Start";
+	} else {
+		node.dataset.read = "true";
+		node.textContent = "Finished";
+	}
+}
+
+function handleDelete(id) {
+	myLibrary = myLibrary.filter((book) => book.id !== id);
+	displayLibrary(myLibrary);
+}
